@@ -1,13 +1,15 @@
 import React from 'react';
-import { Rect } from 'react-konva';
+import { DungeonShape } from '../common/DungeonShape';
 
 
 export const LargeDungeon = ({ position }) => (
-  <Rect
-    x={position.x + 10}
-    y={position.y + 10}
-    width={80}
-    height={80}
+  <DungeonShape
     fill="#FFFFFF"
+    height={80}
+    position={{
+      x: position.x + 10,
+      y: position.y + 10
+    }}
+    width={80}
   />
 );

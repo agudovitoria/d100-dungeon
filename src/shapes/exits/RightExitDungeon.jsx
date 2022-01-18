@@ -1,12 +1,15 @@
 import React from 'react';
-import { Rect } from 'react-konva';
+import { DungeonShape } from '../common/DungeonShape';
 
 
 export const RightExitDungeon = ({ position }) => (
-  <Rect
-    x={position.x + 70}
-    y={position.y + 40}
-    width={30}
+  <DungeonShape
+    fill="#FFFFFF"
     height={20}
-    fill="#FFFFFF" />
+    position={{
+      x: position.x + 70,
+      y: position.y + 40
+    }}
+    width={30}
+  />
 );

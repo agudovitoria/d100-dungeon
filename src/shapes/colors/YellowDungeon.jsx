@@ -1,10 +1,14 @@
 import React from 'react';
-import { ColorDungeon } from './ColorDungeon';
+import { DungeonShape } from '../common/DungeonShape';
 
 export const YellowDungeon = ({ position }) => (
-  <ColorDungeon
-    position={position}
+  <DungeonShape
+    bordered="true"
     fill="#F4D03F"
+    height={100}
+    position={position}
+    shadowed="true"
+    width={100}
   />
 );
     
