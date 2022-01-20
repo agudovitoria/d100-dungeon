@@ -1,15 +1,22 @@
 import React from 'react';
 import { DungeonShape } from '../common/DungeonShape';
+import { styles } from '../../config/styles';
 
+export const LeftDoorDungeon = () => {
+  const config = styles.byType.door; 
+  const color = config.color;
+  const {
+    height,
+    position,
+    width
+  } = config.byPosition.left;
 
-export const LeftDoorDungeon = ({ position }) => (
-  <DungeonShape
-    fill="#707B7C"
-    height={20}
-    position={{
-      x: position.x,
-      y: position.y + 40
-    }}
-    width={5}
-  />
-);
+  return (
+    <DungeonShape
+      fill={color}
+      height={height}
+      position={position}
+      width={width}
+    />
+  );
+};

@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import dungeonsSlice from '../redux/dungeons/dungeonsSlice';
+import dungeonsSlice from './dungeons/dungeonsSlice';
 
 export const store = configureStore({
   reducer: {

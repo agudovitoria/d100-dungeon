@@ -3,6 +3,7 @@ export const COLORS = {
   GREEN: 'green',
   RED: 'red',
   YELLOW: 'yellow',
+  GREY: 'grey'
 };
 
 export const POSITIONS = {
@@ -18,6 +19,13 @@ export const SIZES = {
 };
 
 export const dungeons = [
+  {
+    id: 0, // START DUNGEON
+    color: COLORS.GREY,
+    size: SIZES.SMALL,
+    exits: [POSITIONS.BOTTOM, POSITIONS.TOP],
+    doors: [POSITIONS.TOP],
+  },
   {
     id: 1,
     color: COLORS.YELLOW,

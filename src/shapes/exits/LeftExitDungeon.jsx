@@ -2,13 +2,13 @@ import React from 'react';
 import { DungeonShape } from '../common/DungeonShape';
 
 
-export const LeftExitDungeon = ({ position }) => (
+export const LeftExitDungeon = () => (
   <DungeonShape
     fill="#FFFFFF"
     height={20}
     position={{
-      x: position.x,
-      y: position.y + 40
+      x: 0,
+      y: 40
     }}
     width={30}
   />

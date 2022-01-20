@@ -1,7 +1,6 @@
 import { HomeIcon, ViewListIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Development } from './Development';
 import { Menu } from './Menu';
 import { Profile } from './Profile';
 
@@ -19,11 +18,10 @@ export const NavBar = () => (
     </Link>
     <Link
       className='border-2 rounded p-1 hover:bg-gray-100'
-      to='dungeons'
+      to='showcase'
     >
       <ViewListIcon className="h-5 w-5" />
     </Link>
-    <Development />
     <Profile />
   </div>
 );

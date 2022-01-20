@@ -1,14 +1,14 @@
 import React from 'react';
 import { DungeonShape } from '../common/DungeonShape';
+import { styles } from '../../config/styles';
 
 
-export const CyanDungeon = ({ position }) => (
+export const CyanDungeon = () => (
   <DungeonShape
     bordered="true"
-    fill="#AED6F1"
-    height={100}
-    position={position}
+    fill={styles.byColor.cyan.color}
+    height={styles.bySize.large.height}
     shadowed="true"
-    width={100}
+    width={styles.bySize.large.width}
   />
 );

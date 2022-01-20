@@ -1,37 +1,30 @@
 import React from 'react';
+import { Layer, Stage } from 'react-konva';
 import uuid from 'react-uuid';
-import { Stage, FastLayer } from 'react-konva';
 import { Dungeon } from '../shapes/Dungeon';
 
-const COLUMNS = 8;
-
-export const D100Stage = ({ dungeons }) => {
-  const col = (x) => x%COLUMNS;
-  const row = (x) => Math.floor(x/COLUMNS);
-
-  const position = (x) => ({
-    x: col(x) * 120 + 50,
-    y: row(x) * 120 + 50
-  });
-
-  const navBarHeight = document.getElementById('navbar')?.offsetHeight || 0;
-  const canvasHeight = window.innerHeight - navBarHeight;
-  const canvasWidth = window.innerWidth;
-
+export const D100Stage = ({
+  canvasHeight,
+  canvasWidth,
+  dungeons,
+  onNextDungeonClick
+}) => {
   return (
     <Stage
-      style={{ backgroundColor: 'lightgray' }}
+      className='flex justify-center bg-gray-300'
       height={canvasHeight}
       width={canvasWidth}
     >
-      <FastLayer>
+      <Layer>
         {
           dungeons.map(({
             color,
             doors,
             exits,
             id,
+            position,
             size,
+            ways
           }) => (
             <Dungeon
               color={color}
@@ -39,12 +32,14 @@ export const D100Stage = ({ dungeons }) => {
               exits={exits}
               id={id}
               key={uuid()}
-              position={position(id - 1)}
+              nextDungeonClick={onNextDungeonClick}
+              position={position}
               size={size}
+              ways={ways}
             />
           ))
         }
-      </FastLayer>
+      </Layer>
     </Stage>
   );
 };
