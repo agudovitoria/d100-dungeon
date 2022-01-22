@@ -10,6 +10,7 @@ import {
   addDungeon,
   addStartDungeon,
   arrowClicked,
+  getDungeonPositionById,
   getDungeons
 } from '../redux/dungeons/dungeonsSlice';
 import { D100Stage } from '../components/D100Stage';
@@ -18,25 +19,50 @@ import {
   getNextRandomDungeonId
 } from '../shapes/lib/mapping';
 import { styles } from '../config/styles';
+import { POSITIONS } from '../shapes/dungeons';
 
 export const DungeonManager = () => {
   const dispatch = useDispatch();
   const dungeons = useSelector(getDungeons);
+  const dungeonPositionById = useSelector(getDungeonPositionById)
   const [canvasSize, setCanvasSize] = useState({ height: 0, width: 0});
   const [nextPosition, setNextPosition] = useState({ x: 0, y: 0 });
 
   const createNewDungeon = (id, direction) => {
     dispatch(arrowClicked({ id, direction }));
-    
-    const nextDungeonPosition = getNextPosition(nextPosition, direction);
+
+
+    const getAngleByDirection = (direction) => {
+      if (direction === POSITIONS.BOTTOM) {
+        return 180;
+      }
+
+      if (direction === POSITIONS.LEFT) {
+        return 90;
+      }
+
+      if (direction === POSITIONS.RIGHT) {
+        return 270;
+      }
+
+      if (direction === POSITIONS.TOP) {
+        return 0;
+      }
+    };
+
+    const dungeonPosition = dungeonPositionById(id);
+
+    const nextDungeonAngle = getAngleByDirection(direction);
+    const nextDungeonPosition = getNextPosition(dungeonPosition, direction);
     setNextPosition(nextDungeonPosition);
-    
+
     const dungeonId = getNextRandomDungeonId();
     dispatch(addDungeon({
+      angle: nextDungeonAngle,
       id: dungeonId,
       position: nextDungeonPosition
     }));
-    
+
     console.log(`Creating new dungeon (${dungeonId}) on ${direction} [${nextDungeonPosition.x}, ${nextDungeonPosition.y}]`);
   };
 

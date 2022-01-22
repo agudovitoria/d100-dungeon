@@ -18,6 +18,19 @@ export const SIZES = {
   SMALL: 'small',
 };
 
+export const ANGLES_BY_DIRECTION = {
+  [POSITIONS.BOTTOM]: 180,
+  [POSITIONS.LEFT]: 270,
+  [POSITIONS.RIGHT]: 90,
+  [POSITIONS.TOP]: 0
+};
+export const DIRECTIONS_BY_ANGLE = {
+  180: POSITIONS.BOTTOM,
+  270: POSITIONS.LEFT,
+  90: POSITIONS.RIGHT,
+  0: POSITIONS.TOP
+};
+
 export const dungeons = [
   {
     id: 0, // START DUNGEON

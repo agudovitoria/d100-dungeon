@@ -3,8 +3,8 @@ import { POSITIONS } from '../dungeons';
 
 export const getNextRandomDungeonId = () => Math.floor(Math.random() * 100);
 
-export const getNextPosition = (currentPosition, direction) => {
-  const { x, y } = currentPosition;
+export const getNextPosition = (dungeonPosition, direction) => {
+  const { x, y } = dungeonPosition;
   const { bySize: { large : { height: dungeonHeight, width: dungeonWidth}} } = styles;
 
   if (direction === POSITIONS.TOP) {

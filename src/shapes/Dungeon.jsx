@@ -2,7 +2,7 @@ import React from 'react';
 import uuid from 'react-uuid';
 import { styles } from '../config/styles';
 import { Group } from 'react-konva';
-import { COLORS, POSITIONS, SIZES } from './dungeons';
+import { ANGLES_BY_DIRECTION, COLORS, DIRECTIONS_BY_ANGLE, POSITIONS, SIZES } from './dungeons';
 import { CyanDungeon } from './colors/CyanDungeon';
 import { GreenDungeon } from './colors/GreenDungeon';
 import { RedDungeon } from './colors/RedDungeon';
@@ -24,6 +24,7 @@ import { RightArrow } from './arrows/RightArrow';
 import { TopArrow } from './arrows/TopArrow';
 
 export const Dungeon = ({
+  angle = 0,
   color = COLORS.RED,
   doors = [],
   exits = [],
@@ -121,8 +122,14 @@ export const Dungeon = ({
     <Group key={`dungeon-${id}-${color}-ways`}>
       {
         ways.map((way) => {
+          const getRealDirectionByAngle = (direction) => {
+            const angleByDirection = ANGLES_BY_DIRECTION[direction];
+            const realAngle = ((angleByDirection + angle) % 360);
+            return DIRECTIONS_BY_ANGLE[realAngle]
+          };
+
           const props = {
-            arrowClicked: (id, direction) => nextDungeonClick(id, direction),
+            arrowClicked: (id, direction) => nextDungeonClick(id, getRealDirectionByAngle(direction)),
             id,
             key: uuid()
           };
@@ -158,6 +165,7 @@ export const Dungeon = ({
         y: styles.bySize.large.height / 2,
       }}
       position={position}
+      rotation={angle}
       width={styles.bySize.large.width}
     >
       {ColorDungeon(color)}

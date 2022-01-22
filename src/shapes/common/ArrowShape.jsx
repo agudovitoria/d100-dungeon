@@ -19,9 +19,8 @@ export const ArrowShape = ({
     evt.target.setOpacity(0.4);
   };
 
-  const onClick = (evt) => {
-    const direction = evt.target.getName();
-    arrowClicked(id, direction);
+  const onClick = () => {
+    arrowClicked(id, name);
   };
 
   return (

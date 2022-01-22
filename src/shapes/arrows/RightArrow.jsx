@@ -9,6 +9,7 @@ export const RightArrow = ({ arrowClicked, id }) => {
 
   return (
     <ArrowShape
+      id={id}
       image={image}
       name={POSITIONS.RIGHT}
       arrowClicked={arrowClicked}
