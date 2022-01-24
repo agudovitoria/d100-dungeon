@@ -6,7 +6,7 @@ import { Profile } from './Profile';
 
 export const NavBar = () => (
   <div 
-    className="border-2 border-zinc-300 flex justify-between p-2 sticky top-0 bg-yellow-500"
+    className="border-2 border-zinc-300 flex justify-between p-2 sticky top-0 bg-yellow-500 z-10"
     id="navbar"
   >
     <Menu />

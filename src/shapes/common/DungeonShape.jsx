@@ -1,6 +1,9 @@
 import React from 'react';
 import { Rect } from 'react-konva';
-import { styles } from '../../config/styles';
+import {
+  SHADOW_STYLE,
+  STROKE_STYLE
+} from '../../config/styles';
 
 export const DungeonShape = ({
   bordered = false,
@@ -18,9 +21,9 @@ export const DungeonShape = ({
     height={height}
     listening={false}
     perfectDrawEnabled={false}
-    shadowBlur={shadowed ? styles.common.shadowBlur.width : 0}
-    stroke={styles.common.stroke.color}
-    strokeWidth={bordered ? styles.common.stroke.width : 0}
+    shadowBlur={shadowed ? SHADOW_STYLE.width : 0}
+    stroke={STROKE_STYLE.color}
+    strokeWidth={bordered ? STROKE_STYLE.width : 0}
     width={width}
     x={position.x}
     y={position.y}

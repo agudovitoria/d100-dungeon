@@ -8,7 +8,7 @@
   background-repeat: repeat;
   filter: brightness(80%) grayscale(40%);
   position: absolute;
-  top: 0;
+  top: getElement;
   left: 0;
   width: 100%;
   height: 100%;

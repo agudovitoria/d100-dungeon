@@ -18,8 +18,8 @@ import {
   getNextPosition,
   getNextRandomDungeonId
 } from '../shapes/lib/mapping';
-import { styles } from '../config/styles';
 import { POSITIONS } from '../shapes/dungeons';
+import { SIZE_LARGE } from '../config/sizeConstants';
 
 export const DungeonManager = () => {
   const dispatch = useDispatch();
@@ -86,13 +86,13 @@ export const DungeonManager = () => {
     
     const initialPosition = {
       x: ((canvasWidth / 2)),
-      y: styles.bySize.large.height / 2
+      y: SIZE_LARGE.height / 2
     };
     
     console.log(`Initial position (${initialPosition.x},${initialPosition.y})`);
 
     setNextPosition(initialPosition);
-    dispatch(addStartDungeon({ position: initialPosition }));
+    // dispatch(addStartDungeon({ position: initialPosition }));
   }, [dispatch, setNextPosition]);
 
   return (

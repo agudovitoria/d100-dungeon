@@ -1,14 +1,15 @@
 import React from 'react';
 import { DungeonShape } from '../common/DungeonShape';
-import { styles } from '../../config/styles';
+import { COLOR_GREEN } from '../../config/colorConstants';
+import { SIZE_LARGE } from '../../config/sizeConstants';
 
 export const GreenDungeon = () => (
   <DungeonShape
     bordered="true"
-    fill={styles.byColor.green.color}
-    height={styles.bySize.large.height}
+    fill={COLOR_GREEN}
+    height={SIZE_LARGE.height}
     shadowed="true"
-    width={styles.bySize.large.width}
+    width={SIZE_LARGE.width}
   />
 );
     

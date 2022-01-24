@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'react-uuid';
-import { styles } from '../config/styles';
+import { SIZE_LARGE } from '../config/sizeConstants';
 import { Group } from 'react-konva';
 import { ANGLES_BY_DIRECTION, COLORS, DIRECTIONS_BY_ANGLE, POSITIONS, SIZES } from './dungeons';
 import { CyanDungeon } from './colors/CyanDungeon';
@@ -158,15 +158,15 @@ export const Dungeon = ({
 
   return (
     <Group
-      height={styles.bySize.large.height}
+      height={SIZE_LARGE.height}
       key={uuid()}
       offset={{
-        x: styles.bySize.large.width / 2,
-        y: styles.bySize.large.height / 2,
+        x: SIZE_LARGE.width / 2,
+        y: SIZE_LARGE.height / 2,
       }}
       position={position}
       rotation={angle}
-      width={styles.bySize.large.width}
+      width={SIZE_LARGE.width}
     >
       {ColorDungeon(color)}
       {ExitsDungeon(exits)}

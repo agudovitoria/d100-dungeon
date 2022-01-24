@@ -1,22 +1,21 @@
-import { styles } from '../../config/styles';
+import { SIZE_LARGE } from '../../config/sizeConstants';
 import { POSITIONS } from '../dungeons';
 
 export const getNextRandomDungeonId = () => Math.floor(Math.random() * 100);
 
-export const getNextPosition = (dungeonPosition, direction) => {
-  const { x, y } = dungeonPosition;
-  const { bySize: { large : { height: dungeonHeight, width: dungeonWidth}} } = styles;
+export const getNextPosition = (currentPosition, direction) => {
+  const { x, y } = currentPosition;
 
   if (direction === POSITIONS.TOP) {
     return {
       x,
-      y: y - dungeonHeight
+      y: y - SIZE_LARGE.height
     };
   }
 
   if (direction === POSITIONS.RIGHT) {
     return {
-      x: x + dungeonWidth,
+      x: x + SIZE_LARGE.width,
       y
     };
   }
@@ -24,13 +23,13 @@ export const getNextPosition = (dungeonPosition, direction) => {
   if (direction === POSITIONS.BOTTOM) {
     return {
       x,
-      y: y + dungeonHeight
+      y: y + SIZE_LARGE.height
     };
   }
 
   if (direction === POSITIONS.LEFT) {
     return {
-      x: x - dungeonWidth,
+      x: x - SIZE_LARGE.width,
       y
     };
   }

@@ -1,22 +1,14 @@
 import React from 'react';
+import { DOOR_COLOR } from '../../config/colorConstants';
+import { SIZE_DOOR_BOTTOM } from '../../config/sizeConstants';
+import { POSITION_DOOR_BOTTOM } from '../../config/positionConstants';
 import { DungeonShape } from '../common/DungeonShape';
-import { styles } from '../../config/styles';
 
-export const BottomDoorDungeon = () => {
-  const config = styles.byType.door; 
-  const color = config.color;
-  const {
-    height,
-    position,
-    width
-  } = config.byPosition.bottom;
-
-  return (
-    <DungeonShape
-      fill={color}
-      height={height}
-      position={position}
-      width={width}
-    />
-  );
-};
+export const BottomDoorDungeon = () => (
+  <DungeonShape
+    fill={DOOR_COLOR}
+    height={SIZE_DOOR_BOTTOM.height}
+    position={POSITION_DOOR_BOTTOM}
+    width={SIZE_DOOR_BOTTOM.width}
+  />
+);

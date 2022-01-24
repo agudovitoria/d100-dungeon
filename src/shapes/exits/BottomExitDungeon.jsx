@@ -1,14 +1,15 @@
 import React from 'react';
+import {
+  EXIT_FILL} from '../../config/styles';
+import { POSITON_EXIT_BOTTOM } from "../../config/positionConstants";
+import { SIZE_EXIT_BOTTOM } from "../../config/sizeConstants";
 import { DungeonShape } from '../common/DungeonShape';
 
 export const BottomExitDungeon = () => (
   <DungeonShape
-    fill="#FFFFFF"
-    height={30}
-    position={{
-      x: 40,
-      y: 70
-    }}
-    width={20}
+    fill={EXIT_FILL}
+    height={SIZE_EXIT_BOTTOM.height}
+    position={POSITON_EXIT_BOTTOM}
+    width={SIZE_EXIT_BOTTOM.width}
   />
 );
